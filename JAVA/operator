@@ -1,0 +1,102 @@
+1. 연산자(operator)란?
+일정한 규칙을 가지고 계산하는 것으로 우리가 일상생활에서 사용하고 있는 덧셈, 뺄셈, 곱셈, 나눗셈을 비롯하여
+프로그램에서는 자동증감, 동등비교, 비트연산 등 많은 연산자가 있다.
+
+2. 연산자의 종류
+ - 산 술 연 산 : * / + -
+ - 증감연산 : ++ --
+ - 동등관계(비교)연산 : ==(같다) !=(다르다) < <= > >=
+ - 논 리 연 산 : && || & | !
+ - 삼항(3항)연산: ? :
+ - 할당(대입) 연산자 : = += -= *= /= %=
+ 
+3. 우선순위에 따른 연산자 종류
+ - 1차 연산자 : ( )
+ - 단항연산자 : ! ++ --
+ - 이항연산자 中 승법연산자 : * / %
+ - 이항연산자 中 가법연산자 : + -
+ - 이항연산자 中 관계연산자 : < <= > >= == != 
+ - 이항연산자 中 비트곱연산자 : &
+ - 이항연산자 中 비트합연산자 : |
+ - 이항연산자 中 논리곱연산자 : &&
+ - 이항연산자 中 논리합연산자 : ||
+ - 조건연산자(3항연산자) : ? :
+ - 할당연산자 : = += -= *= /= %=
+ -----------------------------------------------------------------------------------------------
+ (Quiz 1) 3의 배수 숫자 판단하기 : 사용자로부터 숫자를 입력 받고, 입력 받은 숫자가 3의 배수인지 파악
+public class Quiz_01 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int su = sc.nextInt();
+		String result = (su%3 == 0) ? "3의 배수입니다" : "3의 배수가 아닙니다";
+		System.out.println("입력하신 수 (" + su + ")는" + result);
+	}
+}
+ -----------------------------------------------------------------------------------------------
+package com.lec.quiz;
+// (Quiz 2) 입력한 수가 짝수인지 홀수인지 출력
+import java.util.Scanner;
+
+public class Quiz_02 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수를 입력하세요 : ");
+		int su = sc.nextInt();
+		String result = (su%2==0)? "짝수입니다":"홀수입니다";
+		System.out.println("결과는 " + result);
+	}
+}
+ -----------------------------------------------------------------------------------------------
+package com.lec.quiz;
+import java.util.Scanner;
+
+// (Quiz 3) 두수를 입력받아 두 수가 같은지 결과를 O나 X로 출력, 첫번째 수가 더 큰지 결과를 O나 X로 출력한다.
+
+public class Quiz_03 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("첫번째 수는 ");
+		int num1 = sc.nextInt();
+		System.out.print("두번째 수는 ");
+		int num2 = sc.nextInt();
+		System.out.println("두수가 같은지 결과는 "+((num1==num2)? "O":"X"));
+		System.out.println("첫번째 수가 더 큰지 여부 "+((num1>num2)? "O":"X"));
+		sc.close();
+	}
+}
+ -----------------------------------------------------------------------------------------------
+package com.lec.quiz;
+import java.util.Scanner;
+
+// (Quiz 4) 나이를 입력받아 입력받은 나이가 65세 이상일 때, “경로우대” 출력, 아니면 “일반”출력
+public class Quiz_04 {
+	public static void main(String[] args) {
+		System.out.print("나이를 입력하세요 ☞ ");
+		Scanner sc = new Scanner(System.in);
+		int age = sc.nextInt();
+		System.out.println((age>=65)? "경로우대": "일반");
+		sc.close();
+	}
+}
+ -----------------------------------------------------------------------------------------------
+package com.lec.quiz;
+import java.util.Scanner;
+// (Quiz 5) 국어, 영어, 수학 점수를 사용자에게 입력받아, 각 점수를 출력하고 총점, 평균(소수점2자리까지)
+// 출력하는 프로그램을 구현 하시오
+public class Quiz_05 {
+	public static void main(String[] args) {
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("국어 점수는?");
+			int kor = scanner.nextInt();
+			System.out.print("영어 점수는?");
+			int eng = scanner.nextInt();
+			System.out.print("수학 점수는?");
+			int mat = scanner.nextInt();
+			int sum = kor + eng + mat;
+			double avg = sum/3.;
+			System.out.printf("국어 = %d, 영어 = %d, 수학 = %d\n",kor, eng, mat);
+			System.out.printf("총점 = %d, 평균 = %.2f\n", sum, avg);
+			scanner.close();
+		}
+	}
