@@ -8,8 +8,12 @@ if(조건식1) {
 위의 조건식 둘 다 참이 아닐 때 실행할 명령문;
 }
 --------------------------------------------------------------------------
+package com.lec.loop.Quiz;
+//Homework 4 : 컴퓨터와 가위바위보 게임을 당신이 질 때까지 무한반복하는 게임을 작성하시오.
+//(단, 가위대신 0, 바위대신 1, 보대신 2)
+import java.util.Scanner;
 
-public class Quiz_04 {
+public class Quiz_08 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int you, computer;
@@ -74,7 +78,7 @@ public class Quiz_04 {
 		} // 결과
 		scanner.close();
 	}// main
-}
+	}
 --------------------------------------------------------------------------
 (2) swith문 (case 사용)
 --------------------------------------------------------------------------
