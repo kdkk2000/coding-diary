@@ -1,0 +1,22 @@
+변수(variable)란?
+(1) 프로그램 작업을 처리하기 위해 하나의 값을 저장할 수 있는 메모리 공간을 말한다
+(2) 임의의 메모리 공간에 이름을 붙여 관리하는 것이다.
+(3) 자바에서는 다양한 타입을 저장할 수 없고, 한가지 타입만 값으로 저장될 수 있다.
+(4) 식별자(identifier)라고도 한다 : 자바코드에서 변수로 입력시킨 이름을 의미한다.
+
+package com.lec.quiz;
+
+public class Example {
+	public static void main(String[] args) {
+		int kor;
+		kor = 80;
+		int eng;
+		eng = 90;
+		int math;
+		math = 80;
+		int sum = kor + eng + math;
+		double avg = sum / 3.0;
+		System.out.println("국어 : "+kor+"\t영어 : "+eng+"\t수학 : "+math);
+		System.out.printf("총점 : %d\t평균 : %.2f\n", sum, avg);	
+	}
+}
