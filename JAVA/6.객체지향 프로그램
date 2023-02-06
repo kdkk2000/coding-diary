@@ -1,0 +1,65 @@
+1.	메소드 프로그램의 한계
+-	메소드를 이용하면 로직의 재사용이 가능하여 개발을 효율적으로 할 수 있었습니다.
+-	절차지향언어에서 중복된 로직을 메소드의 사용으로 인해 효율성을 높일 수 있다.
+-	하지만, 한 문서 내에 메소드의 수가 많아질 경우 추후 유지 보수에 많은 어려움이 발생됩니다.
+2.	객체의 개념 및 클래스의 이해
+-	객체는 관련성 있는 데이터와 메소드가 함께 있는 구성체입니다.
+-	예를 들어 자동차 라는 객체가 있다면, 자동차에는 색상, 배기량, 브렌드, 속도 등의 데이터가 있고 메소드로는 드라이브, 주차, 레이싱이 있습니다.
+
+--------------------------------------------------------------------------------
+package com.lec.ex;
+// 클래스 : 속성(데이터)과 메소드
+// Car myCar = new Car();
+// myCar.park()
+public class Car {
+	private String color;
+	private int    cc; // 배기량
+	private int    speed;
+	public void park() {
+		speed = 0;
+		System.out.println(color + "색 차 주차한다. 지금 속도 : " + speed);
+	}
+	public void drive() {
+		speed = 60;
+		System.out.println(color + "색 차 운전한다. 지금 속도 : " + speed);
+	}
+	public void race() {
+		speed = 120;
+		System.out.println(color + "색 차 레이싱한다. 지금 속도 : " + speed);
+	}
+	// getter & setter (color:getColor/setColor , cc:getCc / setCc, speed). myCar.SetColor("빨강")
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color; // this.color:내 객체 안의 color
+	}
+	public int getCc() {
+		return cc;
+	}
+	public void setCc(int cc) {
+		this.cc = cc;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+}
+-------------------------------------------------
+package com.lec.ex;
+public class CarMain {
+	public static void main(String[] args) {
+		Car myPorsche = new Car();
+		myPorsche.setColor("빨강");//myPorsche.color = "빨강";
+		System.out.println(myPorsche.getColor()+"색 차량 배기량 : " + myPorsche.getCc());
+		myPorsche.drive();
+		myPorsche.park();
+		myPorsche.race();
+		Car yourPorsche = new Car();
+		yourPorsche.setColor("진회색");//yourPorsche.color = "진회색";
+		yourPorsche.drive();
+		System.out.println("내차 속도 : " + myPorsche.getSpeed());
+	}
+}
