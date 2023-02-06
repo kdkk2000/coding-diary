@@ -74,7 +74,6 @@ public class StudentMain {
 	private static void line(char c) {
 		for(int cnt=0 ; cnt <55 ; cnt++)
 			System.out.print(c);
-		System.out.println();
-		
+		System.out.println();	
 	}
 }
