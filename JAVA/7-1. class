@@ -1,0 +1,78 @@
+1.	클래스 제작 (ExClass.java)
+    package com.lec.ex;
+    public class ExClass { // 반드시 대문자로 시작. 알파벳,숫자,_
+      private 자료형 인스턴스변수( = 속성 = 필드)명;
+      public ExClass(){ 	}
+      public return_type method(){
+      . . .
+      }
+    }
+①	패키지명
+②	클래스명
+③	데이터(인스턴스 변수=멤버변수, 필드) : 이 데이터는 생성자나 setter를 이용해서 초기화하지 않으면
+                                      객체는 null, 숫자는 0, boolean은 false로 초기화되어 들어간다
+④	생성자함수 : 클래스명과 똑같이 리턴타입이 없는 메소드를 생성자라 하며 처음 클래스형 객체를 만들때 호출된다.
+              모든 클래스는 반드시 하나 이상의 생성자가 있어야 한다. 만약 하나도 없으면 JVM이 디폴트 생성자를 만들어 준다(new 연산자로 호출되는 메서드)
+⑤	메소드
+⑥	Getter & setter
+2.	생성자의 이해 : 생성자는 매개변수 있는 생성자와 매개변수 없는 생성자 등 여러 종류의 생성자를 가질 수 있다.
+                    생성자가 없을 때는 디폴트 생성자가 컴파일러 단계에서 자동 생성한다. 한 개 이상의 생성자가 있으면 디폴트 생성자는 자동 생성되지 않는다.
+                    
+-----------------------------------------------------------------------------------------------------------------
+package com.lec.quiz;
+
+public class Member {
+	private String id;
+	private String pw;
+	private String name;
+	private String email;
+	private String address;
+	private String birth;
+	private char   gender;
+	public Member() { }
+	public Member(String id, String pw, String name, String email, String address, String birth, char gender) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.birth = birth;
+		this.gender = gender;
+	}
+	public String infoString() {
+		String genderStr = (gender=='M' || gender=='m') ? "남자" : 
+													(gender=='F' || gender=='f') ? "여자":"";
+		return String.format("아이디 = %s\n이름 = %s\n이메일 = %s\n주소 = %s\n생일 = %s\n성별 = %s\n", 
+							 id, name, email, address, birth, genderStr);
+	}
+	public String getId() {return id;}
+	public void setId(String id) {this.id = id;}
+	public String getPw() {return pw;}
+	public void setPw(String pw) {this.pw = pw;}
+	public String getName() {return name;}
+	public void setName(String name) {this.name = name;}
+	public String getEmail() {return email;}
+	public void setEmail(String email) {this.email = email;}
+	public String getAddress() {return address;}
+	public void setAddress(String address) {this.address = address;}
+	public String getBirth() {return birth;}
+	public void setBirth(String birth) {this.birth = birth;}
+	public char getGender() {return gender;}
+	public void setGender(char gender) {this.gender = gender;}
+}
+-----------------------------------------------------------------------------------------------------------------
+package com.lec.quiz;
+
+public class MemberMain {
+	public static void main(String[] args) {
+		Member member1 = new Member("aaa", "xxx", "홍길동", "hong@company.com",
+                "서울시 강남구", "2000-01-01", 'M');
+		Member member2 = new Member("bbb", "xxx", "신길동", "shin@company.com", 
+				"서울시 서대문구 신촌로 141", "1999-01-02", 'F');
+		//System.out.println(member1.infoString());
+		Member[] members = {member1, member2};
+		for(Member member : members) {
+			System.out.println(member.infoString());
+		}
+	}
+}
